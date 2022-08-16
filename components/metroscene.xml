@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<component name="MetroScene" extends="Scene" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
+
+<script type="text/brightscript" >
+<![CDATA[
+    function updateTrains() as Void
+        m.top.findNode("train1").text= m.global.train1
+        m.top.findNode("train2").text= m.global.train2
+        m.top.findNode("train3").text= m.global.train3
+        m.top.findNode("train4").text= m.global.train4
+        m.top.findNode("train5").text= m.global.train5
+        m.top.findNode("train6").text= m.global.train6
+    end function
+
+
+    function init()
+        styles = {
+            "GothamPurpleBold": {
+                "fontUri": "pkg:/fonts/BBrick.otf"
+                "fontSize":36
+                "color": "#662d91"
+            }
+            "Silver": {
+                "fontSize": 12
+                "fontUri": "font:LargeSystemFont"
+                "color": "#C0C0C0"
+            } 
+            "Yellow": {
+                "fontSize": 12
+                "fontUri": "font:LargeSystemFont"
+                "color": "#FFFF00"
+            } 
+            "Orange": {
+                "fontSize": 12
+                "fontUri": "font:LargeSystemFont"
+                "color": "#FFA500"
+            } 
+            "Blue": {
+                "fontSize": 12
+                "fontUri": "font:LargeSystemFont"
+                "color": "#4169E1"
+            } 
+            "Red": {
+                "fontSize": 12
+                "fontUri": "font:LargeSystemFont"
+                "color": "FF0000"
+            } 
+            "Green": {
+                "fontSize": 12
+                "fontUri": "font:LargeSystemFont"
+                "color": "#00FF7F"
+            }   
+            "default": {
+                "fontSize": 20
+                "fontUri": "font:LargeSystemFont"
+                "color": "#FFFFFF"
+            }              
+        }
+        m.top.backgroundURI = "pkg:/images/black.jpg"
+	    m.top.setFocus(true)
+        updateTrains()
+        m.top.findNode("train1").drawingStyles = styles
+        m.global.observeField("train1", "updateTrains")
+        m.global.observeField("train2", "updateTrains")
+        m.global.observeField("train3", "updateTrains")
+        m.global.observeField("train4", "updateTrains")
+        m.global.observeField("train5", "updateTrains")
+        m.global.observeField("train6", "updateTrains")
+    end function
+
+    
+]]>
+</script>
+
+<children>
+
+<LayoutGroup layoutDirection="vert" horizAlign="center" vertAlign="center" width="1080" height="800">
+    <MultiStyleLabel id="titles" text="LN    CAR    DEST           MIN" vertAlign="center" horizAlign ="center" width="1000" height="50" color="#ff9900"/>
+    <MultiStyleLabel id="train1" vertAlign="center" horizAlign ="center" width="1000" height="50" />
+    <MultiStyleLabel id="train2" vertAlign="center" horizAlign ="center" width="1000" height="50" />
+    <MultiStyleLabel id="train3" vertAlign="center" horizAlign ="center" width="1000" height="50" />
+    <MultiStyleLabel id="train4" vertAlign="center" horizAlign ="center" width="1000" height="50" />
+    <MultiStyleLabel id="train5" vertAlign="center" horizAlign ="center" width="1000" height="50" />
+    <MultiStyleLabel id="train6" vertAlign="center" horizAlign ="center" width="1000" height="50" />
+</LayoutGroup>
+
+</children>
+
+</component>

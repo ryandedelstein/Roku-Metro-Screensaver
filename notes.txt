@@ -1,0 +1,3 @@
+url: http://10.0.0.75
+Username: rokudev
+Webserver password: abcd
